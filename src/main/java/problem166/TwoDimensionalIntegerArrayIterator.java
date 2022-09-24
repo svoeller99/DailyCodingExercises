@@ -37,23 +37,20 @@ public class TwoDimensionalIntegerArrayIterator implements Iterator<Integer> {
     }
 
     private Integer findNext() {
-        // our current X position is outside the bounds of the outer array, return null indicating that there is no next
-        // element
-        if (x >= outerArray.length) {
-            return null;
-        }
+        int[] innerArray;
 
-        // fetch inner array at current X position and advance X position by one.
-        int[] innerArray = outerArray[x];
-
-        // advance to the next inner array if the current one is empty
-        while (y >= innerArray.length) {
-            if (++x >= outerArray.length) {
+        do {
+            if (x >= outerArray.length) {
                 return null;
             }
             innerArray = outerArray[x];
-            y = 0;
-        }
+            if (y >= innerArray.length) {
+                y = 0;
+                x++;
+            } else {
+                break;
+            }
+        } while (true);
 
         return innerArray[y++];
     }
