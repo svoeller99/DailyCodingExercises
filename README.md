@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/svoeller99/DailyCodingExercises.svg?branch=master)](https://app.travis-ci.com/svoeller99/DailyCodingExercises)
